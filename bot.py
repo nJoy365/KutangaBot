@@ -6,15 +6,9 @@ from managers.logging import Logger
 import wavelink
 from utils.embed import Embed
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from fastapi import FastAPI, APIRouter
-import uvicorn
-import asyncio
-from routers.bot import API_Router
 from dotenv import load_dotenv
 
 load_dotenv()
-
-app = FastAPI()
 
 
 class KutangaBot(commands.Bot):
