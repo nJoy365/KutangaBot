@@ -1,0 +1,36 @@
+services:
+  bot:
+    build: ./bot
+    container_name: discord-bot
+    env_file:
+      - .env  # Load environment variables from .env file
+    depends_on:
+      - lavalink
+      - mongodb
+    restart: unless-stopped
+
+  lavalink:
+    image: openjdk:23
+    container_name: lavalink
+    volumes:
+      - ./lavalink/Lavalink4.0.8.jar:/Lavalink.jar
+      - ./lavalink/application.yml:/application.yml
+      - ./lavalink/plugins:/plugins
+    env_file:
+      - .env  # Load environment variables from .env file
+    command: ["java", "-jar", "/Lavalink.jar"]
+    ports:
+      - "2333:2333"
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:

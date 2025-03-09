@@ -4,7 +4,7 @@
 ### dotenv ###
 .env
 env/
-
+folder_structure.ps1
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -35,8 +35,7 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-*.jar
-application.yml
+
 MANIFEST
 .vscode/
 
@@ -183,5 +182,10 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,dotenv
-/data/cah-cards-full.json
 /bin/
+.env
+bot/__pycache__/
+bot/cogs/__pycache__/
+bot/managers/__pycache__/
+bot/utils/__pycache__/
+lavalink/plugins/
